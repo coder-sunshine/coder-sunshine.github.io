@@ -20,10 +20,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: npm
-      - run: npm ci
+          cache: pnpm
+      - run: pnpm ci
       - name: Build
-        run: npm run docs:build
+        run: pnpm run build
       - name: Move built files to root directory and clean up
         run: |
           rm -rf guide reference
