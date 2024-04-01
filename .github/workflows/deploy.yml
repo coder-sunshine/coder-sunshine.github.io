@@ -24,15 +24,10 @@ jobs:
       - run: npm ci
       - name: Build
         run: npm run build
-      - name: Move built files to root directory and clean up
-        run: |
-          rm -rf guide reference
-          mv docs/.vitepress/dist/* ./
-          rm -rf docs/.vitepress/dist
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: ./
+          path: docs/.vitepress/dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
