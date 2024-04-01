@@ -24,7 +24,7 @@ jobs:
       - run: npm ci
       - name: Build
         run: npm run build
-        - name: Move built files to root directory and clean up
+      - name: Move built files to root directory and clean up
         run: |
           rm -rf guide reference
           mv docs/.vitepress/dist/* ./
