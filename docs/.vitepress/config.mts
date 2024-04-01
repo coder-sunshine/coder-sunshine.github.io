@@ -5,7 +5,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: "fftools",
   description: "this is ff-tools api website",
-  base: './',
+  base: '/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
    // 上面的导航
