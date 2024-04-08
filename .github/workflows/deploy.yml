@@ -26,7 +26,9 @@ concurrency:
 jobs:
   # 构建工作
   build:
+    # 执行平台
     runs-on: ubuntu-latest
+    # 任务步骤
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,19 +36,21 @@ jobs:
           fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
       - uses: pnpm/action-setup@v3 # 如果使用 pnpm，请取消注释
       # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释
+      # 安装 node 环境，并设置版本为 20
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm # 或 pnpm / yarn
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
 
-      - uses: actions/checkout@v2
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v2.0.1
+      # 安装 pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
           version: 8.15.4 # 指定需要的pnpm版本
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Install dependencies
         run: pnpm install # 或 pnpm install / yarn install / bun install
